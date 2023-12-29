@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        button {
+            color: black;
+        }
+        .quiz{
+       box-shadow: 0 0 10px black;
+       text-align:center;
+       width:500px;
+       margin-left: 500px;
+        }
+
+    </style>
+</head>
+<body style="background-color: rgb(158, 208, 246);">
+    <center>
+    <h1><b>QUIZ</b></h1>
+    </center>
+<section class="quiz" style="background-color: #fff" >
+    <div>
+        <p>1. What are your interests?</p>
+        <label>
+            <input type="radio" name="interests" value="science"> Science
+        </label>
+        <label>
+            <input type="radio" name="interests" value="arts"> Arts
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>2. What is your preferred learning environment?</p>
+        <label>
+            <input type="radio" name="environment" value="classroom"> Classroom
+        </label>
+        <label>
+            <input type="radio" name="environment" value="online"> Online
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>3. What is your preferred field of study?</p>
+        <label>
+            <input type="radio" name="field" value="computers"> Computers
+        </label>
+        <label>
+            <input type="radio" name="field" value="healthcare"> Healthcare
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>4. Do you enjoy working in teams or individually?</p>
+        <label>
+            <input type="radio" name="teamorindividual" value="teams"> Teams
+        </label>
+        <label>
+            <input type="radio" name="teamorindividual" value="individual"> Individual
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>5. What level of degree are you aiming for?</p>
+        <label>
+            <input type="radio" name="degree" value="undergraduate"> Undergraduate
+        </label>
+        <label>
+            <input type="radio" name="degree" value="graduate"> Graduate
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>6. How important is salary potential in your career choice?</p>
+        <label>
+            <input type="radio" name="salary" value="important"> Important
+        </label>
+        <label>
+            <input type="radio" name="salary" value="not_important"> Not Important
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>7. What are your preferred extracurricular activities?</p>
+        <label>
+            <input type="checkbox" name="extracurricular" value="sports"> Sports
+        </label>
+        <label>
+            <input type="checkbox" name="extracurricular" value="arts"> Arts/Creative
+        </label>
+        <label>
+            <input type="checkbox" name="extracurricular" value="volunteer"> Volunteer Work
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>8. How do you handle challenges and problem-solving?</p>
+        <label>
+            <input type="radio" name="problem" value="analytical"> Analytical Approach
+        </label>
+        <label>
+            <input type="radio" name="problem" value="creative"> Creative Approach
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>9. What is your preferred work environment?</p>
+        <label>
+            <input type="radio" name="work" value="office"> Office
+        </label>
+        <label>
+            <input type="radio" name="work" value="outdoors"> Outdoors
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>10. How do you handle stress?</p>
+        <label>
+            <input type="radio" name="stress" value="calm"> Calm and Collected
+        </label>
+        <label>
+            <input type="radio" name="stress" value="proactive"> Proactive and Action-Oriented
+        </label>
+    </div>
+    <br>
+    
+    <div>
+        <p>11. What is your long-term career goal?</p>
+        <label>
+            <input type="radio" name="careergoal" value="leadership"> Leadership/Management
+        </label>
+        <label>
+            <input type="radio" name="careergoal" value="research"> Research and Innovation
+        </label>
+    </div>
+
+<br>
+
+<button class="btnn" onclick="Result()" id="submit"><B>KNOW YOUR FIELD</B></button>
+<p id="result"></p></section>
+<style>
+    .btnn{
+    width: 150px   ;
+    height: 40px;
+    background: hsl(232, 100%, 50%);
+    border: 2px solid hsl(232, 100%, 50%);
+    margin-top: 30px;
+    color:aliceblue;
+    font-size: 15px;
+    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+</style>
+
+<script>
+    function Result() {
+        const interests = document.querySelector('input[name="interests"]:checked').value;
+        const environment = document.querySelector('input[name="environment"]:checked').value;
+        const field = document.querySelector('input[name="field"]:checked').value;
+        const teamOrIndividual = document.querySelector('input[name="teamorindividual"]:checked').value;
+        const degree = document.querySelector('input[name="degree"]:checked').value;
+        const salary = document.querySelector('input[name="salary"]:checked').value;
+        const extracurricular = document.querySelectorAll('input[name="extracurricular"]:checked');
+        const problem = document.querySelector('input[name="problem"]:checked').value;
+        const work = document.querySelector('input[name="work"]:checked').value;
+        const stress = document.querySelector('input[name="stress"]:checked').value;
+        const careergoal = document.querySelector('input[name="careergoal"]:checked').value;
+
+        let result = "";
+
+        if (interests === "science" && careergoal === "leadership") {
+            result = "You might be interested in a career that combines science and leadership roles.";
+        } else if (interests === "arts" && careergoal === "research") {
+            result = "Consider a career in arts and research for creative exploration.";
+        } else {
+            result = "depending upon your Answer You are interested in .";
+        }
+
+        if (extracurricular.length > 0) {
+            result += " Additionally, your interests in ";
+            for (let i = 0; i < extracurricular.length; i++) {
+                result += extracurricular[i].value;
+                if (i < extracurricular.length - 1) {
+                    result += ", ";
+                }
+            }
+            result += " could open up various opportunities.";
+        }
+
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+
+</body>
+</html>
